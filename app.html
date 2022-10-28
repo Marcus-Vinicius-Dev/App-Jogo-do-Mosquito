@@ -16,13 +16,14 @@
                 <img id="v3" src="imagens/coracao_cheio.png" />
             </div>
             <div class="cronometro">
-                Tempo restante: ?
+                Tempo restante: <span id="cronometro"></span>
             </div>
         </div>
 
         <script>
 
-            setInterval(function() { //posicaoRandomica está no jogo.js
+document.getElementById('cronometro').innerHTML = tempo //copiado de jogo.js
+            var criaMosquito = setInterval(function() { //posicaoRandomica está no jogo.js
                 posicaoRandomica()
             }, 2000) //os mosquitos randomicos apareceram automaticamente
         </script>

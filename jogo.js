@@ -1,6 +1,7 @@
 var altura = 0
 var largura = 0
 var vidas = 1
+var tempo = 5
 
 function ajustaTamanhoPalcoJogo() { //essa função será chamada no body do app.html onresize="ajustaTamanhoPalcoJogo()" 
     altura = window.innerHeight
@@ -10,6 +11,19 @@ function ajustaTamanhoPalcoJogo() { //essa função será chamada no body do app
 }
 
 ajustaTamanhoPalcoJogo()
+
+var cronometro = setInterval(function() {
+
+    tempo -= 1
+
+    if(tempo < 0) {
+        clearInterval(cronometro) //elimina o cronômetro
+        clearInterval(criaMosquito) //elimina a criação randômica de mosquito
+        alert('Vitória')
+    }
+    document.getElementById('cronometro').innerHTML = tempo //pega o vaor de cronometro no arquivo app.html
+    
+}, 1000)
 
 function posicaoRandomica() { //aparece o mosquito em qualquer parte do jogo, incluida no app.html também
     
