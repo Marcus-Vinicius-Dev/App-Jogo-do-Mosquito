@@ -19,9 +19,10 @@ var cronometro = setInterval(function() {
     if(tempo < 0) {
         clearInterval(cronometro) //elimina o cronômetro
         clearInterval(criaMosquito) //elimina a criação randômica de mosquito
-        alert('Vitória')
-    }
+        window.location.href = 'vitoria.html'
+    } else {
     document.getElementById('cronometro').innerHTML = tempo //pega o vaor de cronometro no arquivo app.html
+    }
     
 }, 1000)
 
