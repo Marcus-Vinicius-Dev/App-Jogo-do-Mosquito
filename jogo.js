@@ -1,11 +1,12 @@
 var altura = 0
 var largura = 0
+var vidas = 1
 
 function ajustaTamanhoPalcoJogo() { //essa função será chamada no body do app.html onresize="ajustaTamanhoPalcoJogo()" 
     altura = window.innerHeight
     largura = window.innerWidth
 
-    console.log(altura, largura)
+    console.log(largura, altura)
 }
 
 ajustaTamanhoPalcoJogo()
@@ -14,10 +15,19 @@ function posicaoRandomica() { //aparece o mosquito em qualquer parte do jogo, in
     
     //remover o mosquito anterior (caso exista)
     if(document.getElementById('mosquito')) {
-        document.getElementById('mosquito').remove() //remover o mosquito anterior (caso exista)  
+        document.getElementById('mosquito').remove() //remover o mosquito anterior (caso exista) 
+        
+        //console.log('elemento selecionado foi: v' + vidas)
+        if(vidas > 3) {
+            alert('Interromper o jogo (game over)')
+        } else {
+            document.getElementById('v' + vidas).src="imagens/coracao_vazio.png"
+
+        vidas++
+        }
+        
     }
     
-
     var posicaoX = Math.floor(Math.random() * largura) - 90
     var posicaoY = Math.floor(Math.random() * altura) - 90
      // o -90 foi criado para que a imagem do mosquito não ultrapasse os limites da tela do jogo e obrigue a criação de uma barra de rolagem tanto vertical quanto horizontal
@@ -38,6 +48,9 @@ function posicaoRandomica() { //aparece o mosquito em qualquer parte do jogo, in
     mosquito.style.top = posicaoY + 'px'
     mosquito.style.position = 'absolute'
     mosquito.id = 'mosquito'
+    mosquito.onclick = function() {
+        this.remove()
+    }
 
     document.body.appendChild(mosquito) //cria um elemento filho no body
 
