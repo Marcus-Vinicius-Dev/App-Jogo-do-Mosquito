@@ -3,6 +3,19 @@ var largura = 0
 var vidas = 1
 var tempo = 15
 
+var criaMosquitoTempo = 1500
+
+var nivel = window.location.search
+nivel = nivel.replace('?', '') //replace retira caracteres do alert, neste caso, retira ? do texto e substitui por vazio ''
+
+if(nivel === 'facil') {
+    criaMosquitoTempo = 1500
+} else if(nivel === 'normal') {
+    criaMosquitoTempo = 1000
+} else if(nivel === 'dificil') {
+    criaMosquitoTempo = 750
+}
+
 function ajustaTamanhoPalcoJogo() { //essa função será chamada no body do app.html onresize="ajustaTamanhoPalcoJogo()" 
     altura = window.innerHeight
     largura = window.innerWidth

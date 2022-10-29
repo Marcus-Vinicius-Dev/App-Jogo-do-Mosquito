@@ -1,3 +1,7 @@
+html {
+    cursor: url(imagens/mata_mosquito.png) 30 30, auto;  /*muda o ponteiro do mouse para raquete e 30px p/ esquerda e 30px p/ baixo*/
+}
+
 body {
     background-image: url(imagens/bg.jpg);
     background-repeat: no-repeat;

@@ -17,7 +17,7 @@
                     return false
                 }
 
-                alert(nivel)
+                window.location.href = "app.html?" + nivel //inserir parâmetros de uma página p/ outra, neste caso a esquerda da interrogação (?) está a página que irá receber (app.html) a direita está o que será enviado aos parâmetros, que neste caso será nivel, após a criação desse parâmtro, o mesmo parâmetro foi criado em jogo.js (var nivel = window.location.search) para ser enviado ao html
                 
             }
         </script>
