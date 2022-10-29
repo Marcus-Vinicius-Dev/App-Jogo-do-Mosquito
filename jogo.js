@@ -1,7 +1,7 @@
 var altura = 0
 var largura = 0
 var vidas = 1
-var tempo = 5
+var tempo = 15
 
 function ajustaTamanhoPalcoJogo() { //essa função será chamada no body do app.html onresize="ajustaTamanhoPalcoJogo()" 
     altura = window.innerHeight
