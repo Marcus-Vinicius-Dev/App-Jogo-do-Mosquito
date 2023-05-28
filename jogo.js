@@ -61,7 +61,7 @@ function posicaoRandomica() { //aparece o mosquito em qualquer parte do jogo, in
      // o -90 foi criado para que a imagem do mosquito não ultrapasse os limites da tela do jogo e obrigue a criação de uma barra de rolagem tanto vertical quanto horizontal
 
     posicaoX = posicaoX < 0 ? 0 : posicaoX
-    posicaoX = posicaoY < 0 ? 0 : posicaoY
+    posicaoY = posicaoY < 0 ? 0 : posicaoY
     // os parâmetros acima foram criados para que a imagem do mosquito não suma quando ocupar a posição 0px, 0px da tela do jogo
 
     console.log(posicaoX, posicaoY)
