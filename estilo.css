@@ -8,6 +8,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     /* Substitui "100%" por "cover" */
+    overflow: hidden;
+    /* Evita que o conteúdo exceda os limites da tela */
 }
 
 .mosquito1 {
@@ -44,17 +46,24 @@ body {
     opacity: 0.7;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .vidas {
     display: flex;
+    align-items: center;
 }
 
 .cronometro {
     font-size: 20px;
     font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    /* Ajuste o valor conforme necessário */
+    z-index: 1;
 }
+
 
 @media (max-width: 767px) {
     html {
