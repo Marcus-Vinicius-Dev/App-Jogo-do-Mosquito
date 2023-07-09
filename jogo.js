@@ -104,18 +104,28 @@ function posicaoRandomica() { //aparece o mosquito em qualquer parte do jogo, in
         }
     */
 
-    mosquito.addEventListener('touchstart', function (event) { //Adicionado um evento de toque no corpo do documento para capturar as coordenadas de toque
-        var toqueX = event.touches[0].clientX;
-        var toqueY = event.touches[0].clientY;
+    mosquito.addEventListener('click', function () { //criado para que o mosquito desapareça ao ser clicado
+        this.remove();
+    });
 
-        if (
-            toqueX >= posicaoX &&
-            toqueX <= posicaoX + mosquito.offsetWidth &&
-            toqueY >= posicaoY &&
-            toqueY <= posicaoY + mosquito.offsetHeight
-        ) {
-            this.remove();
-        }
+    /*    mosquito.addEventListener('touchstart', function (event) { //Adicionado um evento de toque no corpo do documento para capturar as coordenadas de toque
+            var toqueX = event.touches[0].clientX;
+            var toqueY = event.touches[0].clientY;
+    
+            if (
+                toqueX >= posicaoX &&
+                toqueX <= posicaoX + mosquito.offsetWidth &&
+                toqueY >= posicaoY &&
+                toqueY <= posicaoY + mosquito.offsetHeight
+            ) {
+                this.remove();
+            }
+        });
+    */
+
+    mosquito.addEventListener('touchstart', function (event) {
+        event.preventDefault();
+        this.remove();
     });
 
     document.body.appendChild(mosquito) //cria um elemento filho no body
@@ -147,3 +157,7 @@ function ladoAleatorio() {
 
     }
 }
+
+var criaMosquito = setInterval(function () {
+    posicaoRandomica();
+}, criaMosquitoTempo);
