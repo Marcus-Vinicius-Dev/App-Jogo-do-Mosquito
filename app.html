@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Jogo do Mosquito</title>
-        <link rel="stylesheet" href="estilo.css" />
-        <script src="jogo.js"></script>
-        
-    </head>
-    <body onresize="ajustaTamanhoPalcoJogo()">
 
-        <div class="painel">
-            <div class="vidas">
-                <img id="v1" src="imagens/coracao_cheio.png" />
-                <img id="v2" src="imagens/coracao_cheio.png" />
-                <img id="v3" src="imagens/coracao_cheio.png" />
-            </div>
-            <div class="cronometro">
-                Tempo restante: <span id="cronometro"></span>
-            </div>
+<head>
+    <title>Jogo do Mosquito</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css" />
+    <script src="jogo.js"></script>
+
+</head>
+
+<body onresize="ajustaTamanhoPalcoJogo()">
+
+    <div class="painel">
+        <div class="vidas">
+            <img id="v1" src="imagens/coracao_cheio.png" />
+            <img id="v2" src="imagens/coracao_cheio.png" />
+            <img id="v3" src="imagens/coracao_cheio.png" />
         </div>
+        <div class="cronometro">
+            Tempo restante: <span id="cronometro"></span>
+        </div>
+    </div>
 
-        <script>
+    <script>
+        document.getElementById('cronometro').innerHTML = tempo //copiado de jogo.js
+        var criaMosquito = setInterval(function () { //posicaoRandomica está no jogo.js
+            posicaoRandomica()
+        }, criaMosquitoTempo) //os mosquitos randomicos apareceram automaticamente
+    </script>
 
-document.getElementById('cronometro').innerHTML = tempo //copiado de jogo.js
-            var criaMosquito = setInterval(function() { //posicaoRandomica está no jogo.js
-                posicaoRandomica()
-            }, criaMosquitoTempo) //os mosquitos randomicos apareceram automaticamente
-        </script>
-    </body>
+</body>
+
 </html>

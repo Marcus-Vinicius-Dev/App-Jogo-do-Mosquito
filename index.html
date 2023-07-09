@@ -1,60 +1,65 @@
 <!DOCTYPE html>
 <html>
-	<head>
-        <meta charset="utf-8">
-		<title>Jogo do Mosquito</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!--retirado do site bootstrap (BootstrapCDN -> CSS only) deve ser incluído antes do estilo.css-->
-		<link rel="stylesheet" href="estilo.css" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script>
-            function iniciarJogo() {
-                var nivel = document.getElementById('nivel').value
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jogo do Mosquito</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--retirado do site bootstrap (BootstrapCDN -> CSS only) deve ser incluído antes do estilo.css-->
+	<link rel="stylesheet" href="estilo.css" />
 
-                if(nivel === '') { //criado p/ o caso de selecionar o nível "selecione o nível"
-                    alert('selecione um nível para iniciar o jogo')
-                    return false
-                }
+	<script>
+		function iniciarJogo() {
+			var nivel = document.getElementById('nivel').value
 
-                window.location.href = "app.html?" + nivel //inserir parâmetros de uma página p/ outra, neste caso a esquerda da interrogação (?) está a página que irá receber (app.html) a direita está o que será enviado aos parâmetros, que neste caso será nivel, após a criação desse parâmtro, o mesmo parâmetro foi criado em jogo.js (var nivel = window.location.search) para ser enviado ao html
-                
-            }
-        </script>
-	</head>
-	<body>
+			if (nivel === '') { //criado p/ o caso de selecionar o nível "selecione o nível"
+				alert('selecione um nível para iniciar o jogo')
+				return false
+			}
 
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="d-flex justify-content-center">
-						<img src="imagens/game.png" />
-					</div>
+			window.location.href = "app.html?" + nivel //inserir parâmetros de uma página p/ outra, neste caso a esquerda da interrogação (?) está a página que irá receber (app.html) a direita está o que será enviado aos parâmetros, que neste caso será nivel, após a criação desse parâmtro, o mesmo parâmetro foi criado em jogo.js (var nivel = window.location.search) para ser enviado ao html
+
+		}
+	</script>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="d-flex justify-content-center">
+					<img src="imagens/game.png" />
 				</div>
 			</div>
+		</div>
 
-            <div class="row">
-				<div class="col">
-					<div class="d-flex justify-content-center">
-                        <div class="mb-2">
-                            <select class="form-control" id="nivel">
-                                <option value="">Selecione o nível</option>
-                                <option value="facil">Fácil</option>
-                                <option value="normal">Normal</option>
-                                <option value="dificil">Difícil</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-			<div class="row">
-				<div class="col">
-					<div class="d-flex justify-content-center">
-						<button type="button" class="btn btn-danger btn-lg" onclick="iniciarJogo()">Iniciar Jogo</button>
+		<div class="row">
+			<div class="col">
+				<div class="d-flex justify-content-center">
+					<div class="mb-2">
+						<select class="form-control" id="nivel">
+							<option value="">Selecione o nível</option>
+							<option value="facil">Fácil</option>
+							<option value="normal">Normal</option>
+							<option value="dificil">Difícil</option>
+						</select>
 					</div>
 				</div>
 			</div>
 		</div>
 
-	</body>
+		<div class="row">
+			<div class="col">
+				<div class="d-flex justify-content-center">
+					<button type="button" class="btn btn-danger btn-lg" onclick="iniciarJogo()">Iniciar Jogo</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
 </html>

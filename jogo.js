@@ -2,9 +2,10 @@ var altura = 0;
 var largura = 0;
 var vidas = 1;
 var tempo = 15;
-
 var criaMosquitoTempo = 1500;
-
+//Para acrescentar o toque na tela posicaoToque 
+var posicaoToqueX = 0;
+var posicaoToqueY = 0;
 var nivel = window.location.search
 nivel = nivel.replace('?', '') //replace retira caracteres do alert, neste caso, retira ? do texto e substitui por vazio ''
 
@@ -20,7 +21,7 @@ function ajustaTamanhoPalcoJogo() { //essa função será chamada no body do app
     altura = window.innerHeight;
     largura = window.innerWidth;
 
-    console.log(largura, altura);
+    //console.log(largura, altura); //retirado após responsividade
 
     // Obtenha o mosquito atual e atualize sua posição para se ajustar à nova tela
     var mosquito = document.getElementById('mosquito');
@@ -54,6 +55,11 @@ var cronometro = setInterval(function () {
     }
 
 }, 1000)
+
+document.body.addEventListener('touchstart', function (event) {
+    posicaoToqueX = event.touches[0].clientX;
+    posicaoToqueY = event.touches[0].clientY;
+});
 
 function posicaoRandomica() { //aparece o mosquito em qualquer parte do jogo, incluida no app.html também
 
@@ -92,9 +98,25 @@ function posicaoRandomica() { //aparece o mosquito em qualquer parte do jogo, in
     mosquito.style.top = posicaoY + 'px'
     mosquito.style.position = 'absolute'
     mosquito.id = 'mosquito'
-    mosquito.onclick = function () {
-        this.remove()
-    }
+
+    /*  mosquito.onclick = function () { //trocada pela função abaixo para ter responsividade
+            this.remove()
+        }
+    */
+
+    mosquito.addEventListener('touchstart', function (event) { //Adicionado um evento de toque no corpo do documento para capturar as coordenadas de toque
+        var toqueX = event.touches[0].clientX;
+        var toqueY = event.touches[0].clientY;
+
+        if (
+            toqueX >= posicaoX &&
+            toqueX <= posicaoX + mosquito.offsetWidth &&
+            toqueY >= posicaoY &&
+            toqueY <= posicaoY + mosquito.offsetHeight
+        ) {
+            this.remove();
+        }
+    });
 
     document.body.appendChild(mosquito) //cria um elemento filho no body
 
