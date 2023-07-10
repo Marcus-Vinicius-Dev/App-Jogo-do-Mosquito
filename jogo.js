@@ -123,7 +123,7 @@ function posicaoRandomica() { //aparece o mosquito em qualquer parte do jogo, in
         });
     */
 
-    mosquito.addEventListener('touchstart', function (event) {
+    mosquito.addEventListener('touchstart', function (event) { //touch na tela do celular
         event.preventDefault();
         this.remove();
     });
